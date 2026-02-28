@@ -23,5 +23,24 @@ def index():
     return render_template("main/index.html", apps=apps_data)
 
 
+@app.route("/games")
+def games():
+    games_data = [
+        {
+            "name": "Super Racer",
+            "category": "Racing",
+            "rating": "4.6",
+            "icon_url": "https://img.icons8.com/fluency/48/f1-race.png",
+        },
+        {
+            "name": "Space Adventure",
+            "category": "Adventure",
+            "rating": "4.9",
+            "icon_url": "https://img.icons8.com/fluency/48/rocket.png",
+        },
+    ]
+    return render_template("main/games.html", games=games_data)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
