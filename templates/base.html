@@ -35,9 +35,9 @@
         </div>
 
         <div class="flex-none gap-2">
-            <button class="btn btn-ghost btn-circle text-gray-500">
-                <i class="ph ph-question text-2xl"></i>
-            </button>
+                <a href="{{ url_for('main.help_center') }}" class="btn btn-ghost btn-circle text-gray-500">
+                    <i class="ph ph-question text-2xl"></i>
+                </a>
             <button class="btn btn-ghost btn-circle text-gray-500">
                 <i class="ph ph-bell text-2xl"></i>
             </button>
@@ -78,7 +78,7 @@
             <div>
                 <h3 class="font-bold mb-4">Support</h3>
                 <ul class="space-y-2 opacity-80">
-                    <li><a href="#" class="hover:underline">Help Center</a></li>
+                    <li><a href="{{ url_for('main.help_center') }}" class="hover:underline">Help Center</a></li>
                     <li><a href="#" class="hover:underline">Refund Policy</a></li>
                 </ul>
             </div>

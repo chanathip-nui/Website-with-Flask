@@ -35,6 +35,11 @@ def books():
     return render_template("main/books.html", books=dummy_list)
 
 
+@main_bp.route("/help")
+def help_center():
+    return render_template("main/help.html")
+
+
 @main_bp.route("/admin")
 @login_required
 @roles_required("admin")
