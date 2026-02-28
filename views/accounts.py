@@ -1,10 +1,10 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, login_required, current_user
 
-from forms import LoginForm, RegisterForm
+from forms import LoginForm, RegisterForm, EditRoleForm
 from models import db, User
+from acl import roles_required
 
-# Define the blueprint for account management
 accounts_bp = Blueprint("accounts", __name__)
 
 
@@ -54,3 +54,31 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for("main.index"))
+
+
+@accounts_bp.route("/users")
+@login_required
+@roles_required("admin")
+def users():
+    users_list = User.query.all()
+    return render_template("accounts/users.html", users=users_list)
+
+
+@accounts_bp.route("/users/<int:user_id>/edit_roles", methods=["GET", "POST"])
+@login_required
+@roles_required("admin")
+def edit_roles(user_id):
+    user = User.query.get_or_404(user_id)
+    form = EditRoleForm()
+
+    if form.validate_on_submit():
+        user.roles = form.roles.data
+        db.session.commit()
+        flash("Roles updated successfully.")
+        return redirect(url_for("accounts.users"))
+
+    # Pre-populate the form with current roles on GET
+    elif request.method == "GET":
+        form.roles.data = user.roles
+
+    return render_template("accounts/edit_roles.html", form=form, user=user)
