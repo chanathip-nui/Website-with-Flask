@@ -3,9 +3,27 @@ from flask_login import login_user, logout_user, login_required, current_user
 
 from forms import LoginForm, RegisterForm
 from models import db, User
+from acl import roles_required
 
-# Define the blueprint for account management
 accounts_bp = Blueprint("accounts", __name__)
+main_bp = Blueprint("main", __name__)
+
+
+def register_blueprint(app):
+    app.register_blueprint(accounts_bp, url_prefix="/accounts")
+    app.register_blueprint(main_bp)
+
+
+@main_bp.route("/")
+def index():
+    return render_template("index.html")
+
+
+@main_bp.route("/admin")
+@login_required
+@roles_required("admin")
+def admin_dashboard():
+    return render_template("admin_dashboard.html")
 
 
 @accounts_bp.route("/register", methods=["GET", "POST"])
