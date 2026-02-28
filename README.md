@@ -30,6 +30,6 @@ App Play เป็นเว็บแอปพลิเคชันจำลอ�
 **3. ตั้งค่าตัวแปรสภาพแวดล้อม (Environment Variables)**
 สร้างไฟล์ .env ที่โฟลเดอร์นอกสุดของโปรเจกต์ และกำหนดค่าดังนี้:
 
-FLASK_ENV=development
+```FLASK_ENV=development
 SECRET_KEY=your_secret_key_here
-SQLALCHEMY_DATABASE_URI=sqlite:///database.db
+SQLALCHEMY_DATABASE_URI=sqlite:///database.db```
