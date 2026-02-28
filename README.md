@@ -18,6 +18,7 @@ App Play เป็นเว็บแอปพลิเคชันจำลอ�
 ## Installation & Setup
 
 **1. สร้างและเปิดใช้งาน Virtual Environment **
+
 ```python -m venv venv```
 
 ```venv\Scripts\activate```
