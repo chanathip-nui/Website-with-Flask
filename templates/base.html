@@ -41,10 +41,22 @@
             <button class="btn btn-ghost btn-circle text-gray-500">
                 <i class="ph ph-bell text-2xl"></i>
             </button>
-            <div class="flex-none gap-2 ml-4">
-                <a href="/login" class="btn btn-outline btn-primary btn-sm rounded-lg px-5 normal-case border-gray-300 text-blue-600 hover:bg-blue-50">
-                    Sign in
-                </a>
+            <div class="flex-none gap-2 ml-4 flex items-center">
+                {% if current_user.is_authenticated %}
+                    <span class="text-sm font-medium text-gray-600 mr-3 hidden md:block">Hi, {{ current_user.username }}</span>
+                    {% if current_user.has_roles(['admin']) %}
+                        <a href="{{ url_for('accounts.users') }}" class="btn btn-ghost btn-sm rounded-lg px-3 mr-2 text-gray-600">
+                            Manage Users
+                        </a>
+                    {% endif %}
+                    <a href="{{ url_for('accounts.logout') }}" class="btn btn-outline btn-error btn-sm rounded-lg px-5 normal-case">
+                        Sign out
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('accounts.login') }}" class="btn btn-outline btn-primary btn-sm rounded-lg px-5 normal-case border-gray-300 text-blue-600 hover:bg-blue-50">
+                        Sign in
+                    </a>
+                {% endif %}
             </div>
         </div>
     </nav>
