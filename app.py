@@ -30,16 +30,35 @@ def games():
             "name": "Super Racer",
             "category": "Racing",
             "rating": "4.6",
-            "icon_url": "https://img.icons8.com/fluency/48/f1-race.png",
+            "icon_url": "https://img.icons8.com/fluency/48/rocket.png",
         },
         {
             "name": "Space Adventure",
             "category": "Adventure",
             "rating": "4.9",
-            "icon_url": "https://img.icons8.com/fluency/48/rocket.png",
+            "icon_url": "https://img.icons8.com/dusk/64/space.png",
         },
     ]
     return render_template("main/games.html", games=games_data)
+
+
+@app.route("/movies")
+def movies():
+    movies_data = [
+        {
+            "name": "Action Flick",
+            "category": "Action",
+            "rating": "4.7",
+            "icon_url": "https://img.icons8.com/fluency/48/action.png",
+        },
+        {
+            "name": "Comedy Central",
+            "category": "Comedy",
+            "rating": "4.5",
+            "icon_url": "https://img.icons8.com/fluency/48/comedy.png",
+        },
+    ]
+    return render_template("main/movies.html", movies=movies_data)
 
 
 if __name__ == "__main__":
