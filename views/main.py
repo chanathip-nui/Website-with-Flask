@@ -40,6 +40,11 @@ def help_center():
     return render_template("main/help.html")
 
 
+@main_bp.route("/refund-policy")
+def refund_policy():
+    return render_template("main/refund.html")
+
+
 @main_bp.route("/admin")
 @login_required
 @roles_required("admin")

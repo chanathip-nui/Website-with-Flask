@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Refund Policy - App Play{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-10 max-w-3xl">
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-4">App Play Refund Policy</h1>
+        
+        <div class="prose prose-slate max-w-none space-y-6 text-gray-600 text-sm md:text-base">
+            <p>
+                At App Play, we want you to be satisfied with your digital purchases. Depending on the type of content you purchased, our refund policies may vary. Please review the guidelines below.
+            </p>
+
+            <h2 class="text-xl font-semibold text-gray-800 mt-8 mb-3">Apps & Games</h2>
+            <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Within 48 hours:</strong> You may be able to get a refund depending on the details of the purchase.</li>
+                <li><strong>After 48 hours:</strong> We generally do not offer refunds, but you can contact the developer directly to troubleshoot issues.</li>
+            </ul>
+
+            <h2 class="text-xl font-semibold text-gray-800 mt-8 mb-3">Movies & TV Shows</h2>
+            <ul class="list-disc pl-5 space-y-2">
+                <li>If you haven't started watching the movie or show, you can request a refund within 7 days of your purchase.</li>
+                <li>If the content is defective, unavailable, or doesn't perform as stated, you can request a refund at any time.</li>
+            </ul>
+
+            <h2 class="text-xl font-semibold text-gray-800 mt-8 mb-3">Books</h2>
+            <ul class="list-disc pl-5 space-y-2">
+                <li><strong>E-books:</strong> You can request a refund within 7 days of purchase, unless the book was part of a bundle or was rented.</li>
+                <li><strong>Audiobooks:</strong> Refunds are only available if the audio file is defective or fails to play.</li>
+            </ul>
+
+            <h2 class="text-xl font-semibold text-gray-800 mt-8 mb-3">How to Request a Refund</h2>
+            <p>
+                To request a refund, please visit your <a href="#" class="text-green-600 hover:underline">Order History</a>. Find the specific order you would like to return, select it, and choose "Request a refund."
+            </p>
+            
+            <div class="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                <p class="text-sm">
+                    <strong>Note:</strong> Refund decisions are made at the sole discretion of App Play. Abuse of the refund policy may result in the denial of future refund requests.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
