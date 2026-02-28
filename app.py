@@ -61,5 +61,24 @@ def movies():
     return render_template("main/movies.html", movies=movies_data)
 
 
+@app.route("/books")
+def books():
+    books_data = [
+        {
+            "name": "The Great Novel",
+            "category": "Fiction",
+            "rating": "4.9",
+            "icon_url": "https://img.icons8.com/fluency/48/book.png",
+        },
+        {
+            "name": "Learning Python",
+            "category": "Education",
+            "rating": "4.8",
+            "icon_url": "https://img.icons8.com/fluency/48/learning.png",
+        },
+    ]
+    return render_template("main/books.html", books=books_data)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
